@@ -1,20 +1,21 @@
 import { motion } from 'motion/react';
-import { 
-  Briefcase, 
-  CheckCircle, 
-  ArrowRight, 
-  Award, 
-  Lock, 
-  ShieldCheck, 
-  TrendingUp, 
-  Users, 
-  FileCheck2, 
-  LineChart, 
+import {
+  Briefcase,
+  CheckCircle,
+  ArrowRight,
+  Award,
+  Lock,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+  FileCheck2,
+  LineChart,
   HardDriveDownload,
   Percent,
   Wallet,
   Globe
 } from 'lucide-react';
+import oneStopImg from '../assets/20604.webp';
 import { Language, TabKey } from '../types';
 import { DICTIONARY, SERVICES } from '../data';
 
@@ -265,11 +266,10 @@ export default function HomeView({ language, setCurrentTab, openServiceDetail }:
             <div className="absolute -top-12 -left-12 w-64 h-64 bg-secondary-fixed/20 rounded-full blur-3xl z-0" />
             
             <div className="relative z-10 rounded overflow-hidden shadow-2xl border border-outline-variant/30 aspect-[4/3] lg:aspect-square">
-              <img 
-                className="w-full h-full object-cover" 
-                alt="Elite Accounting Office Code Analytics" 
-                referrerPolicy="no-referrer"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnKJyjqX6_uoZMITEa8SJLfiLgHVXwUXFQ4aU3HVckAKcOBpwx6SRbnfDaI1Fd_5tPignzaDAew5bJ0iW461zjSh7gETJB0lPQ3FehSqT60FnqTngkECQEPZwGIL3OpcVOTfLvKhadXvgrgTLt72w4ObohzKls96rUZ5NDhBychZkptBy2G7d-smJwPzvOfW4RxZ_1pPGJ-AM3fJVtAOkBCSRWY9Guic5TSyMMuUfohJqgEEB2DIlFtN8CrRN8dIZVIj1rigBuH-4"
+              <img
+                className="w-full h-full object-cover"
+                alt="Moz Consultores — Parceria Estratégica"
+                src={oneStopImg}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/35 to-transparent pointer-events-none" />
             </div>

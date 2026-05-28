@@ -49,7 +49,7 @@ export default function Header({ currentTab, setCurrentTab, language, setLanguag
           <div>
             <span className="font-bold text-xl tracking-tight text-primary">Moz Consultores</span>
             <span className="block text-[9px] font-mono tracking-widest text-[#ba8f44] uppercase -mt-1 font-semibold">
-              {language === 'en' ? 'Strategy & Advisory' : 'Consultoria Estratégica'}
+              {language === 'en' ? 'Strategy & Partnership' : 'Parceiro Estratégico'}
             </span>
           </div>
         </div>

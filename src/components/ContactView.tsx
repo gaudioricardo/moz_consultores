@@ -1,15 +1,14 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  ShieldCheck, 
-  CheckCircle, 
-  Loader2, 
-  Users2, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ShieldCheck,
+  CheckCircle,
+  Loader2,
+  Users2,
   Timer,
-  Globe,
   Lock
 } from 'lucide-react';
 import { Language, InquiryFormState } from '../types';
@@ -24,7 +23,6 @@ interface ActiveOffice {
   email: string;
   address: string;
   hours: string;
-  mapImage: string;
 }
 
 const CONTACT_EMAIL = 'claravilanculos95@gmail.com';
@@ -74,8 +72,7 @@ export default function ContactView({ language }: ContactViewProps) {
       phone: '+258 84 624 9497',
       email: CONTACT_EMAIL,
       address: 'Rua Vladmir Lenine, Balane 2, Prédio AIMS 1º Andar - Cidade de Inhambane',
-      hours: 'Seg-Sex, 8:00 - 17:00 CAT',
-      mapImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400&h=300' // Maputo urban representation
+      hours: 'Seg-Sex, 8:00 - 17:00 CAT'
     }
   ];
 
@@ -369,32 +366,6 @@ export default function ContactView({ language }: ContactViewProps) {
                 </div>
               </div>
 
-            </div>
-
-            {/* Interactive map coordinates viewer exactly matching image visualizer */}
-            <div className="rounded border border-outline-variant/30 overflow-hidden relative shadow-md aspect-[4/3] w-full bg-surface-container">
-              <img 
-                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
-                alt={`${currentOffice.city} Map`}
-                referrerPolicy="no-referrer"
-                src={currentOffice.mapImage}
-              />
-              <div className="absolute inset-0 bg-primary/10 hover:bg-transparent transition-colors pointer-events-none" />
-              
-              {/* Custom maps locator overlaid banner */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
-                <div className="bg-primary text-on-primary p-3 rounded shadow-2xl border border-outline-variant/20 flex items-center gap-2 max-w-xs">
-                  <MapPin className="w-5 h-5 text-secondary animate-bounce" />
-                  <div>
-                    <span className="block font-headline text-xs font-extrabold text-white uppercase tracking-wider">
-                      {language === 'en' ? 'Main Audit Hub' : 'Sede de Operações'}
-                    </span>
-                    <span className="block text-[10px] text-primary-fixed/80 line-clamp-1">
-                      {currentOffice.city}
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
           </div>

@@ -266,8 +266,9 @@ export default function App() {
         </div>
 
         {/* Legal copyright stripe */}
-        <div className="border-t border-primary-container/20 py-6 text-center text-primary-fixed opacity-60 text-[10px] font-mono tracking-wide">
-          &copy; {new Date().getFullYear()} {dict.brand}. {dict.allRights}
+        <div className="border-t border-primary-container/20 py-6 text-center text-primary-fixed opacity-60 text-[10px] font-mono tracking-wide space-y-1">
+          <div>&copy; {new Date().getFullYear()} {dict.brand}. {dict.allRights}</div>
+          <div className="opacity-50">Powered By: Gáudio Ricardo | Software Architect</div>
         </div>
       </footer>
 
