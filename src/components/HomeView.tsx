@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import Counter from './Counter';
 import {
   Briefcase,
   CheckCircle,
@@ -28,25 +29,28 @@ interface HomeViewProps {
 export default function HomeView({ language, setCurrentTab, openServiceDetail }: HomeViewProps) {
   const dict = DICTIONARY[language];
 
-  // Statistics tailored for a growing starting boutique firm centered in Mozambique
   const stats = [
     {
-      value: '5+',
+      value: 12,
+      suffix: '+',
       label: language === 'en' ? 'Combined Exp. (Years)' : 'Anos de Experiência',
       color: 'text-secondary'
     },
     {
-      value: '50+',
+      value: 50,
+      suffix: '+',
       label: language === 'en' ? 'Growing Startups Aided' : 'Empresas Apoiadas',
       color: 'text-secondary'
     },
     {
-      value: '98%',
+      value: 98,
+      suffix: '%',
       label: language === 'en' ? 'Success Rate' : 'Nível de Rigor / Sucesso',
       color: 'text-secondary'
     },
     {
-      value: '80+',
+      value: 80,
+      suffix: '+',
       label: language === 'en' ? 'Incorporations Guided' : 'Empresas Legalizadas',
       color: 'text-secondary'
     }
@@ -192,7 +196,7 @@ export default function HomeView({ language, setCurrentTab, openServiceDetail }:
             {stats.map((stat, i) => (
               <div key={i} className="text-center p-4 rounded bg-surface border border-outline-variant/5 shadow-sm">
                 <div className={`font-headline text-3xl lg:text-4xl font-extrabold ${stat.color} mb-1`}>
-                  {stat.value}
+                  <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="font-sans text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
                   {stat.label}

@@ -25,7 +25,7 @@ interface ActiveOffice {
   hours: string;
 }
 
-const CONTACT_EMAIL = 'claravilanculos95@gmail.com';
+const CONTACT_EMAIL = 'clarawanela@mozconsultores.com';
 const WHATSAPP_NUMBER = '258846249497'; // +258 84 624 9497
 
 export default function ContactView({ language }: ContactViewProps) {

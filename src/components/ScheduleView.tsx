@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Language, BookingState } from '../types';
 import { CONSULTANTS, SERVICES } from '../data';
+import Counter from './Counter';
 
 interface ScheduleViewProps {
   language: Language;
@@ -105,7 +106,7 @@ export default function ScheduleView({ language }: ScheduleViewProps) {
       `━━━━━━━━━━━━━━━━━━━━━\n\n` +
       `${booking.notes || 'Sem notas adicionais.'}`
     );
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=claravilanculos95@gmail.com&su=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=clarawanela@mozconsultores.com&su=${subject}&body=${body}`;
 
     setTimeout(() => {
       window.open(gmailUrl, '_blank', 'noopener,noreferrer');
@@ -286,7 +287,10 @@ export default function ScheduleView({ language }: ScheduleViewProps) {
                         </p>
                       </div>
                       <span className="text-[9px] font-mono text-on-surface-variant">
-                        {language === 'en' ? `${c.experience} yrs expert level` : `${c.experience} anos experiência`}
+                        <Counter
+                          value={c.experience}
+                          suffix={language === 'en' ? '+ yrs expert level' : '+ anos experiência'}
+                        />
                       </span>
                     </button>
                   );

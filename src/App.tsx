@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Phone, MapPin, Compass } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 import Header from './components/Header';
 import HomeView from './components/HomeView';
@@ -10,7 +10,7 @@ import ContactView from './components/ContactView';
 import ScheduleView from './components/ScheduleView';
 import { Language, TabKey } from './types';
 import { DICTIONARY } from './data';
-import logo from './assets/MozConsultores Logo.png';
+import logo from './assets/logo.webp';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<TabKey>('home');
@@ -29,7 +29,7 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -45,82 +45,77 @@ export default function App() {
 
   const dict = DICTIONARY[language];
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 bg-[#133854] text-white flex flex-col items-center justify-center z-50 overflow-hidden">
-        {/* Subtly animated decorative backgrounds */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white blur-3xl animate-pulse" />
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#ba8f44] blur-3xl" style={{ animationDelay: '1s' }} />
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center justify-center gap-7 text-center px-6 relative z-10"
-        >
-          {/* Centralized logo inside white rounded card with shadow */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.02, 1],
-              boxShadow: [
-                "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
-                "0 25px 30px -5px rgb(0 0 0 / 0.45), 0 12px 14px -6px rgb(0 0 0 / 0.45)",
-                "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)"
-              ]
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 3,
-              ease: "easeInOut"
-            }}
-            className="w-48 h-48 md:w-56 md:h-56 bg-white p-4 rounded-full flex items-center justify-center border-4 border-[#ba8f44]"
-          >
-            <img src={logo} alt="Moz Consultores logo" className="w-full h-full object-contain" />
-          </motion.div>
-          
-          <div className="space-y-3">
-            <motion.h1 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.7 }}
-              className="font-headline text-2xl md:text-3.5xl font-extrabold tracking-wide text-white drop-shadow-md"
-            >
-              Bem Vindo a MozConsultores
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.75 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="text-[11px] md:text-xs font-mono tracking-[0.25em] text-[#cbd5e1] uppercase font-semibold"
-            >
-              Parceria Estratégica para o seu Crescimento
-            </motion.p>
-          </div>
-          
-          {/* Loader track animation */}
-          <div className="w-40 h-1 bg-white/10 rounded-full overflow-hidden mt-3 relative">
-            <motion.div 
-              initial={{ left: "-100%" }}
-              animate={{ left: "100%" }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 1.8, 
-                ease: "easeInOut" 
-              }}
-              className="absolute top-0 bottom-0 w-1/2 bg-[#ba8f44] rounded-full"
-            />
-          </div>
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-background text-on-background font-sans flex flex-col justify-between pt-20 overflow-x-hidden">
-      
+
+      {/* Preloader overlay — sits above the real content with backdrop-blur */}
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            key="preloader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeOut' } }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden backdrop-blur-md bg-[#133854]/80 text-white"
+          >
+            <div className="absolute inset-0 opacity-15 pointer-events-none">
+              <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white blur-3xl animate-pulse" />
+              <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-[#ba8f44] blur-3xl" style={{ animationDelay: '1s' }} />
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="flex flex-col items-center justify-center gap-7 text-center px-6 relative z-10"
+            >
+              <motion.div
+                animate={{
+                  scale: [1, 1.02, 1],
+                  boxShadow: [
+                    '0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)',
+                    '0 25px 30px -5px rgb(0 0 0 / 0.45), 0 12px 14px -6px rgb(0 0 0 / 0.45)',
+                    '0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)'
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                className="w-48 h-48 md:w-56 md:h-56 bg-white p-4 rounded-full flex items-center justify-center"
+              >
+                <img src={logo} alt="Moz Consultores logo" className="w-full h-full object-contain" />
+              </motion.div>
+
+              <div className="space-y-3">
+                <motion.h1
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.7 }}
+                  className="font-headline text-2xl md:text-3.5xl font-extrabold tracking-wide text-white drop-shadow-md"
+                >
+                  Bem Vindo a MozConsultores
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.75 }}
+                  transition={{ delay: 0.9, duration: 0.6 }}
+                  className="text-[11px] md:text-xs font-mono tracking-[0.25em] text-[#cbd5e1] uppercase font-semibold"
+                >
+                  Parceria Estratégica para o seu Crescimento
+                </motion.p>
+              </div>
+
+              <div className="w-40 h-1 bg-white/10 rounded-full overflow-hidden mt-3 relative">
+                <motion.div
+                  initial={{ left: '-100%' }}
+                  animate={{ left: '100%' }}
+                  transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+                  className="absolute top-0 bottom-0 w-1/2 bg-[#ba8f44] rounded-full"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* 1. Header Navigation System */}
       <Header 
         currentTab={currentTab} 
@@ -185,9 +180,9 @@ export default function App() {
           
           {/* Logo brand pillar block */}
           <div className="md:col-span-4 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-secondary rounded flex items-center justify-center text-white">
-                <Compass className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shrink-0 shadow-md">
+                <img src={logo} alt="Moz Consultores logo" className="w-10 h-10 object-contain" />
               </div>
               <span className="font-headline font-bold text-lg text-white">Moz Consultores</span>
             </div>
@@ -201,7 +196,7 @@ export default function App() {
               </div>
               <div className="flex items-center gap-2 text-xs text-primary-fixed">
                 <Mail className="w-3.5 h-3.5 text-secondary" />
-                <span>inhambane@mozconsultores.co.mz</span>
+                <span>clarawanela@mozconsultores.com</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-primary-fixed">
                 <MapPin className="w-3.5 h-3.5 text-secondary" />

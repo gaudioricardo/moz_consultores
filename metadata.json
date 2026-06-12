@@ -1,6 +1,10 @@
 {
   "name": "Moz Consultores",
   "description": "Precision-Driven Financial Consultancy and Fiscal Strategy Platform",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "version": "1.0.0",
+  "main": "src/index.tsx",
+  "developer": {
+    "name": "Gáudio Ricardo",
+    "email": "gaudioricardomatimbe@gmail.com"
+  }
 }

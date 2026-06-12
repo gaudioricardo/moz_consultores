@@ -1,4 +1,5 @@
 import { Consultant, ServiceDetail } from './types';
+import claraImage from './assets/Clara.webp';
 
 export const SERVICES: ServiceDetail[] = [
   {
@@ -96,11 +97,11 @@ export const SERVICES: ServiceDetail[] = [
 export const CONSULTANTS: Consultant[] = [
   {
     id: 'clara',
-    name: 'Clara',
+    name: 'Clara Wanela',
     roleEn: 'CEO & Founder',
     rolePt: 'CEO',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200',
-    experience: 10,
+    image: claraImage,
+    experience: 12,
     rating: 5.0
   }
 ];

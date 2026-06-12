@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Language, TabKey } from '../types';
 import { CONSULTANTS, DICTIONARY } from '../data';
+import Counter from './Counter';
 
 interface AboutViewProps {
   language: Language;
@@ -199,7 +200,10 @@ export default function AboutView({ language, setCurrentTab }: AboutViewProps) {
                   src={c.image}
                 />
                 <div className="absolute bottom-3 left-3 bg-primary text-white text-[9px] font-mono px-2 py-1 rounded">
-                  {language === 'en' ? `${c.experience} Years Exp` : `${c.experience} Anos Exp`}
+                  <Counter
+                    value={c.experience}
+                    suffix={language === 'en' ? '+ Years Exp' : '+ Anos Exp'}
+                  />
                 </div>
               </div>
               <div className="p-5 text-center space-y-2">
