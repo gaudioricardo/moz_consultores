@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Página Principal -->
+  <url>
+    <loc>https://mozconsultores.com/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-MZ" href="https://mozconsultores.com/" />
+    <xhtml:link rel="alternate" hreflang="en"   href="https://mozconsultores.com/" />
+  </url>
+
+  <!-- Serviços -->
+  <url>
+    <loc>https://mozconsultores.com/#services</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Legalização e Registo de Empresas -->
+  <url>
+    <loc>https://mozconsultores.com/#services/legalisation</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gestão Fiscal e Contabilística -->
+  <url>
+    <loc>https://mozconsultores.com/#services/accounting_audit</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Consultoria Financeira -->
+  <url>
+    <loc>https://mozconsultores.com/#services/taxation</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gestão de Recursos Humanos -->
+  <url>
+    <loc>https://mozconsultores.com/#services/financial_management</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Consultoria Jurídica -->
+  <url>
+    <loc>https://mozconsultores.com/#services/human_resources</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Comércio Internacional -->
+  <url>
+    <loc>https://mozconsultores.com/#services/legal_consulting</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Consultoria Ambiental -->
+  <url>
+    <loc>https://mozconsultores.com/#services/environmental_consulting</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Licenciamento Cambial -->
+  <url>
+    <loc>https://mozconsultores.com/#services/forex_licensing</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contabilidade e Auditoria -->
+  <url>
+    <loc>https://mozconsultores.com/#services/import_export</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sobre Nós -->
+  <url>
+    <loc>https://mozconsultores.com/#about</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contacto -->
+  <url>
+    <loc>https://mozconsultores.com/#contact</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Agendamento -->
+  <url>
+    <loc>https://mozconsultores.com/#schedule</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
