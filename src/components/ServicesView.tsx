@@ -12,16 +12,16 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import { 
-  Briefcase, 
-  Check, 
-  ArrowRight, 
-  HelpCircle, 
-  ChevronRight, 
-  LineChart, 
-  DollarSign, 
-  TrendingUp, 
-  Layers, 
+import {
+  Briefcase,
+  Check,
+  ArrowRight,
+  HelpCircle,
+  ChevronRight,
+  LineChart,
+  DollarSign,
+  TrendingUp,
+  Layers,
   Calculator,
   Percent,
   Cpu,
@@ -30,9 +30,10 @@ import {
   Users,
   ShieldCheck,
   Globe,
-  HardDriveDownload
+  HardDriveDownload,
+  Calendar
 } from 'lucide-react';
-import { Language, TabKey } from '../types';
+import { Language, TabKey, ServiceDetail } from '../types';
 import { SERVICES } from '../data';
 
 interface ServicesViewProps {
@@ -87,6 +88,54 @@ export default function ServicesView({ language, selectedServiceId, setSelectedS
     { name: 'Retained Cash', Current: Math.round(taxableProfit - currentTaxLiability), Optimized: Math.round(taxableProfit - optimizedTaxLiability) }
   ];
 
+  const renderDetail = (s: ServiceDetail) => (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-surface p-6 sm:p-8 rounded border border-primary/20 shadow-md space-y-5"
+    >
+      <div className="flex justify-between items-start border-b border-outline-variant/30 pb-4">
+        <div>
+          <h2 className="font-headline text-xl sm:text-2xl font-extrabold text-primary">
+            {language === 'en' ? s.titleEn : s.titlePt}
+          </h2>
+          <span className="font-mono text-[10px] tracking-widest text-secondary font-bold uppercase block mt-1">
+            {language === 'en' ? 'ADVISORY COMPLIANCE METRICS' : 'MÉTRICAS DE COMPLIANCE ADVISORY'}
+          </span>
+        </div>
+        <span className="text-secondary bg-secondary-container/15 px-3 py-1 rounded text-xs font-semibold uppercase font-sans shrink-0 ml-2">
+          {language === 'en' ? 'Verified' : 'Verificado'}
+        </span>
+      </div>
+
+      <p className="font-sans text-sm text-on-surface-variant leading-relaxed text-justify">
+        {language === 'en' ? s.descEn : s.descPt}
+      </p>
+
+      <div>
+        <h4 className="font-sans text-xs font-extrabold text-primary uppercase tracking-wider mb-3">
+          {language === 'en' ? 'Core Sub-Specialties' : 'Sub-Especialidades Integradas'}
+        </h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {(language === 'en' ? s.bulletsEn : s.bulletsPt).map((bullet, idx) => (
+            <div key={idx} className="flex gap-2 items-center bg-surface-container-low px-3 py-2.5 rounded border border-outline-variant/15 text-xs font-medium text-primary">
+              <Check className="w-4 h-4 text-secondary shrink-0" />
+              <span>{bullet}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        onClick={() => setCurrentTab('schedule')}
+        className="w-full flex items-center justify-center gap-2 bg-secondary text-white text-sm font-semibold px-4 py-3 rounded-sm hover:opacity-90 transition-all cursor-pointer active:scale-95"
+      >
+        <Calendar className="w-4 h-4" />
+        {language === 'en' ? 'Schedule a Call' : 'Agendar Chamada'}
+      </button>
+    </motion.div>
+  );
+
   return (
     <div className="max-w-[1200px] mx-auto px-6 py-12">
       {/* Title block */}
@@ -117,33 +166,41 @@ export default function ServicesView({ language, selectedServiceId, setSelectedS
           {SERVICES.map((s) => {
             const isSelected = selectedServiceId === s.id;
             return (
-              <button
-                key={s.id}
-                onClick={() => setSelectedServiceId(s.id)}
-                className={`w-full text-left p-5 rounded border transition-all flex items-start gap-4 cursor-pointer hover:shadow-md ${
-                  isSelected 
-                    ? 'border-primary bg-primary-container/5 shadow-sm' 
-                    : 'border-outline-variant/30 bg-surface'
-                }`}
-              >
-                <div className={`p-2.5 rounded shrink-0 ${
-                  isSelected ? 'bg-primary text-white' : 'bg-surface-container text-primary-container'
-                }`}>
-                  {getServiceIcon(s.id, "w-5 h-5")}
-                </div>
-
-                <div className="flex-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className={`font-headline text-sm font-bold ${isSelected ? 'text-primary' : 'text-on-surface'}`}>
-                      {language === 'en' ? s.titleEn : s.titlePt}
-                    </h3>
-                    <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'rotate-90 text-primary' : 'text-outline'}`} />
+              <div key={s.id}>
+                <button
+                  onClick={() => setSelectedServiceId(s.id)}
+                  className={`w-full text-left p-5 rounded border transition-all flex items-start gap-4 cursor-pointer hover:shadow-md ${
+                    isSelected
+                      ? 'border-primary bg-primary-container/5 shadow-sm'
+                      : 'border-outline-variant/30 bg-surface'
+                  }`}
+                >
+                  <div className={`p-2.5 rounded shrink-0 ${
+                    isSelected ? 'bg-primary text-white' : 'bg-surface-container text-primary-container'
+                  }`}>
+                    {getServiceIcon(s.id, "w-5 h-5")}
                   </div>
-                  <p className="font-sans text-xs text-on-surface-variant mt-1.5 line-clamp-2 leading-relaxed text-justify">
-                    {language === 'en' ? s.descEn : s.descPt}
-                  </p>
-                </div>
-              </button>
+
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center">
+                      <h3 className={`font-headline text-sm font-bold ${isSelected ? 'text-primary' : 'text-on-surface'}`}>
+                        {language === 'en' ? s.titleEn : s.titlePt}
+                      </h3>
+                      <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'rotate-90 text-primary' : 'text-outline'}`} />
+                    </div>
+                    <p className="font-sans text-xs text-on-surface-variant mt-1.5 line-clamp-2 leading-relaxed text-justify">
+                      {language === 'en' ? s.descEn : s.descPt}
+                    </p>
+                  </div>
+                </button>
+
+                {/* Card de detalhe inline — visível apenas em mobile */}
+                {isSelected && (
+                  <div className="lg:hidden mt-3">
+                    {renderDetail(s)}
+                  </div>
+                )}
+              </div>
             );
           })}
 
@@ -171,53 +228,11 @@ export default function ServicesView({ language, selectedServiceId, setSelectedS
         {/* Right Side: Detailed Service View and Calculator dashboard */}
         <div className="lg:col-span-7 space-y-8">
           
-          {/* Active Service Detailed View Panel */}
+          {/* Active Service Detailed View Panel — visível apenas em desktop */}
           {selectedServiceId && (
-            <motion.div 
-              key={selectedServiceId}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-surface p-8 rounded border border-primary/20 shadow-md space-y-6"
-            >
-              {(() => {
-                const s = SERVICES.find((serv) => serv.id === selectedServiceId)!;
-                return (
-                  <>
-                    <div className="flex justify-between items-start border-b border-outline-variant/30 pb-4">
-                      <div>
-                        <h2 className="font-headline text-2xl font-extrabold text-primary">
-                          {language === 'en' ? s.titleEn : s.titlePt}
-                        </h2>
-                        <span className="font-mono text-[10px] tracking-widest text-secondary font-bold uppercase block mt-1">
-                          {language === 'en' ? 'ADVISORY COMPLIANCE METRICS' : 'MÉTRICAS DE COMPLIANCE ADVISORY'}
-                        </span>
-                      </div>
-                      <span className="text-secondary bg-secondary-container/15 text-secondary px-3 py-1 rounded text-xs font-semibold uppercase font-sans">
-                        {language === 'en' ? 'Verified' : 'Verificado'}
-                      </span>
-                    </div>
-
-                    <p className="font-sans text-sm text-on-surface-variant leading-relaxed text-justify">
-                      {language === 'en' ? s.descEn : s.descPt}
-                    </p>
-
-                    <div>
-                      <h4 className="font-sans text-xs font-extrabold text-primary uppercase tracking-wider mb-3">
-                        {language === 'en' ? 'Core Sub-Specialties' : 'Sub-Especialidades Integradas'}
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {(language === 'en' ? s.bulletsEn : s.bulletsPt).map((bullet, idx) => (
-                          <div key={idx} className="flex gap-2 items-center bg-surface-container-low px-3 py-2.5 rounded border border-outline-variant/15 text-xs font-medium text-primary">
-                            <Check className="w-4 h-4 text-secondary shrink-0" />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                );
-              })()}
-            </motion.div>
+            <div className="hidden lg:block" key={selectedServiceId}>
+              {renderDetail(SERVICES.find((s) => s.id === selectedServiceId)!)}
+            </div>
           )}
 
           {/* Real-time Tax Savings Calculator Simulator */}

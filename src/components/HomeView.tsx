@@ -142,7 +142,7 @@ export default function HomeView({ language, setCurrentTab, openServiceDetail }:
         </section>
       ) : (
         /* Screenshot 2 Style: Grand Corporate Lobby Banner with Overlay */
-        <section className="relative w-full overflow-hidden bg-primary h-[550px] flex items-center">
+        <section className="relative w-full overflow-hidden bg-primary min-h-[550px] flex items-center py-16 md:py-0">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-primary/75 z-10" />
             <img 

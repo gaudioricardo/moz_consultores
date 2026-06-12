@@ -55,7 +55,7 @@ export default function App() {
             key="preloader"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeOut' } }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden backdrop-blur-md bg-[#133854]/80 text-white"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden backdrop-blur-md bg-[#133854]/80 text-white"
           >
             <div className="absolute inset-0 opacity-15 pointer-events-none">
               <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white blur-3xl animate-pulse" />

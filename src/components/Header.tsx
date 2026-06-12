@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Globe, Calendar, Compass } from 'lucide-react';
 import { Language, TabKey } from '../types';
 import { DICTIONARY } from '../data';
-import logo from '../assets/MozConsultores Logo.png';
+import logo from '../assets/logo.webp';
 
 interface HeaderProps {
   currentTab: TabKey;
